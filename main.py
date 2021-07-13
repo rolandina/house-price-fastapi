@@ -15,7 +15,7 @@ app = FastAPI(title="Data for House Price Prediction")
 async def get():
     try:       
         df_train = pd.read_csv('data/train.csv')
-        train_set_json = df_train.to_json()
+        train_set_json = df_train.to_dict()
     except:
         print("file not found")
     return train_set_json
@@ -28,7 +28,7 @@ async def get():
 async def get():
     try:       
         df_test = pd.read_csv('data/test.csv')
-        test_set_json = df_test.to_json()
+        test_set_json = df_test.to_dict()
     except:
         print("file not found")       
     return test_set_json
